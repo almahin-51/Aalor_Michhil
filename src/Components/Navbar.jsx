@@ -24,19 +24,24 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Homepage</a>
+              <a href="/">Homepage</a>
             </li>
             <li>
-              <a>Portfolio</a>
+              <a href="/about">About</a>
             </li>
             <li>
-              <a>About</a>
+              <a href="/login">Login</a>
+            </li>
+            <li>
+              <a href="/register">Register</a>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a href="/" className="btn btn-ghost text-xl">
+          daisyUI
+        </a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
