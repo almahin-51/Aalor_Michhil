@@ -7,3 +7,28 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+.status_one {
+  background-image: url(./assets/pic/s1.jpg);
+  object-fit: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
+  background-size: cover;
+}
+.status_two {
+  background-image: url(./assets/pic/s2.jpg);
+  object-fit: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
+  background-size: cover;
+}
+.status_three {
+  background-image: url(./assets/pic/s3.jpg);
+  object-fit: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
+  background-size: contain;
+}
