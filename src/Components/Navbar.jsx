@@ -16,8 +16,6 @@ const Navbar = () => {
   const handleToggle = () => {
     setToggle(!toggle);
   }
-
-  console.log(user)
   return (
     <div className="navbar bg-base-100 sticky top-0 px-16 z-10">
       <div className="navbar-start">

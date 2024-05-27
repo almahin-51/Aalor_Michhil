@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword, user, loading, error
   ] = useSignInWithEmailAndPassword(auth);
 
   const handleSignIn = (e) =>{
@@ -25,7 +25,8 @@ const Login = () => {
     if(userInfo){
       navigate("/")
     }
-  },[navigate, userInfo])
+  },[navigate, userInfo]);
+  console.log(user, loading, error);
 
   return (
     <div>
@@ -64,6 +65,9 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
+                {
+                  error && <p className="text-red-500 text-center mt-3">{error.message?.slice(10)}</p>
+                }
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?

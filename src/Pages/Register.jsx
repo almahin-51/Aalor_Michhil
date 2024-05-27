@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 
 const Register = () => {
 
-  const [user, loading] = useAuthState(auth);
+  const [userInfo] = useAuthState(auth);
   const navigate = useNavigate();
   const [passMatch, setPassMatch] = useState(true);
 
-  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,17 +23,18 @@ const Register = () => {
       setPassMatch(false);
     }
     if(password === confirm_password){
+      setPassMatch(true);
       createUserWithEmailAndPassword(email, password);
-    }
-
-    
+    }    
   };
 
+  console.log(user)
+
   useEffect(()=>{
-    if(user){
+    if(userInfo){
       navigate("/")
     }
-  },[navigate, user, loading])
+  },[navigate, userInfo, loading])
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -87,6 +88,9 @@ const Register = () => {
                   <div className="py-2"><p className="text-red-500">Password do not Match!</p></div>
                 )
               }
+              {
+                  error && <p className="text-red-500 text-center mt-3">{error.message?.slice(10)}</p>
+                }
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
