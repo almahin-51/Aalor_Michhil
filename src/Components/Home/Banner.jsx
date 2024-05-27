@@ -57,7 +57,7 @@ const Banner = () => {
       </div>
 
       {/* Status   */}
-      <div className="sm:absolute inset-x-0 bottom-[-100px] ">
+      <div className="sm:absolute inset-x-0 bottom-[-100px] mx-16">
         <div className="sm:flex mx-auto gap-10 justify-center ">
           <div className="status_one w-[200px] h-[120px] sm:w-[400px] sm:h-[220px] ">
             <div className="bg-[#41b7ced1] text-center p-4 h-full">
