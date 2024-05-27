@@ -1,7 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../Components/auth/GoogleLogin";
+import { useAuthState,useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../Firebase/firebase.config";
+import { useEffect } from "react";
 
 const Login = () => {
+  const [userInfo] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  const [
+    signInWithEmailAndPassword
+  ] = useSignInWithEmailAndPassword(auth);
+
+  const handleSignIn = (e) =>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signInWithEmailAndPassword(email, password);
+
+  }
+
+  useEffect(()=>{
+    if(userInfo){
+      navigate("/")
+    }
+  },[navigate, userInfo])
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -15,7 +40,7 @@ const Login = () => {
             </p>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleSignIn} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -23,6 +48,7 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="email"
+                  name="email"
                   className="input input-bordered"
                   required
                 />
@@ -34,6 +60,7 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="password"
+                  name="password"
                   className="input input-bordered"
                   required
                 />

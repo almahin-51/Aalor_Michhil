@@ -6,6 +6,8 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import About from "../Pages/About";
 import AllBooks from "../Pages/AllBooks";
+import PrivateRoute from "./PrivateRoute";
+import DashboardLayout from "../Layouts/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -35,4 +37,10 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/dashboard",
+    element: <PrivateRoute>
+      <DashboardLayout/>
+    </PrivateRoute>
+  }
 ]);

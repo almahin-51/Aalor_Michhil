@@ -5,7 +5,7 @@ const BooksCard = ({ book }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
-        <img src={imageLink} alt="Shoes" />
+        <img src={imageLink} alt="Books" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">

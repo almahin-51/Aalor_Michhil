@@ -1,7 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../Components/auth/GoogleLogin";
+import { useAuthState, useCreateUserWithEmailAndPassword,  } from "react-firebase-hooks/auth";
+import auth from "../Firebase/firebase.config";
+import { useEffect, useState } from "react";
 
 const Register = () => {
+
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+  const [passMatch, setPassMatch] = useState(true);
+
+  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirm_password = form.confirm_password.value;
+
+    if(password !== confirm_password){
+      setPassMatch(false);
+    }
+    if(password === confirm_password){
+      createUserWithEmailAndPassword(email, password);
+    }
+
+    
+  };
+
+  useEffect(()=>{
+    if(user){
+      navigate("/")
+    }
+  },[navigate, user, loading])
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,7 +46,7 @@ const Register = () => {
           </p>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -22,6 +54,7 @@ const Register = () => {
               <input
                 type="email"
                 placeholder="email"
+                name="email"
                 className="input input-bordered"
                 required
               />
@@ -33,6 +66,7 @@ const Register = () => {
               <input
                 type="password"
                 placeholder="password"
+                name="password"
                 className="input input-bordered"
                 required
               />
@@ -44,9 +78,15 @@ const Register = () => {
               <input
                 type="password"
                 placeholder="Confirm password"
+                name="confirm_password"
                 className="input input-bordered"
                 required
               />
+              {
+                !passMatch && (
+                  <div className="py-2"><p className="text-red-500">Password do not Match!</p></div>
+                )
+              }
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
