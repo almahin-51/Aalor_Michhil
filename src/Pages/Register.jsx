@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import GoogleLogin from "../Components/auth/GoogleLogin";
+
 const Register = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -51,9 +54,22 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Submit</button>
+              <button className="btn btn-primary">Register</button>
             </div>
+
+            <p className="text-center">
+              Already have an account ?{" "}
+              <Link to={"/login"} className="text-red-500">
+                Login
+              </Link>
+            </p>
           </form>
+
+          <div className="  w-full ">
+            <div className="flex flex-col gap-2 mx-7 mb-7">
+              <GoogleLogin />
+            </div>
+          </div>
         </div>
       </div>
     </div>
