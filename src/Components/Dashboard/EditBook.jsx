@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 const EditBook = () => {
   const { id } = useParams();
@@ -16,10 +17,27 @@ const EditBook = () => {
       }
     }
     load();
-  }, [id]);
+  }, []);
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    swal({
+      title: "Are you sure?",
+      text: "You want to Update the book?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("Successfully Update the Book!", {
+          icon: "success",
+        });
+        handleUpdateBook(e);
+      }
+    });
+  };
 
   const handleUpdateBook = async (e) => {
-    e.preventDefault();
     const form = e.target;
     const title = form.title.value;
     const price = form.price.value;
@@ -46,7 +64,6 @@ const EditBook = () => {
       bookData
     );
     if (updated.status === 200) {
-      alert("Book Successfully Updated");
       navigate("/dashboard/manage-books");
     }
   };
@@ -54,7 +71,7 @@ const EditBook = () => {
   return (
     <div className="w-full px-16">
       <h1 className="text-4xl mb-4 font-bold">Edit Books</h1>
-      <form onSubmit={handleUpdateBook} className="w-full">
+      <form onSubmit={handleUpdate} className="w-full">
         <div className="mb-4">
           <label htmlFor="">Title </label>
           <input

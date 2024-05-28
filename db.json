@@ -22,9 +22,9 @@
       "link": "https://en.wikipedia.org/wiki/Fairy_Tales_Told_for_Children._First_Collection.",
       "pages": 784,
       "title": "Fairy tales",
-      "year": 1836,
+      "year": "1836",
       "rating": 4.2,
-      "price": 12.99
+      "price": "12.99"
     },
     {
       "id": "3",
@@ -35,9 +35,9 @@
       "link": "https://en.wikipedia.org/wiki/Divine_Comedy",
       "pages": 928,
       "title": "The Divine Comedy",
-      "year": 1315,
+      "year": "1315",
       "rating": 4.8,
-      "price": 17.99
+      "price": "17.99"
     },
     {
       "id": "4",
@@ -48,9 +48,9 @@
       "link": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh",
       "pages": 160,
       "title": "The Epic Of Gilgamesh",
-      "year": -1700,
+      "year": "-1700",
       "rating": 4.1,
-      "price": 10.99
+      "price": "10"
     },
     {
       "id": "5",
@@ -126,9 +126,9 @@
       "link": "https://en.wikipedia.org/wiki/Molloy_(novel)",
       "pages": 256,
       "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
-      "year": 1952,
+      "year": "1952",
       "rating": 4.1,
-      "price": 14.99
+      "price": "14.99"
     },
     {
       "id": "11",
@@ -589,7 +589,7 @@
       "id": "82",
       "author": "Herman Melville",
       "country": "United States",
-      "imageLink": "images/moby-dick.jpg",
+      "imageLink": "/images/moby-dick.jpg",
       "language": "English",
       "link": "https://en.wikipedia.org/wiki/Moby-Dick",
       "pages": 635,

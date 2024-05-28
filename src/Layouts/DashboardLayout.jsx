@@ -41,7 +41,10 @@ const DashboardLayout = () => {
             </li>
           </div>
           <div className="flex gap-4 justify-center">
-            <button className="btn btn-outline" onClick={handleLogout}>
+            <button
+              className="btn btn-outline btn-error"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </div>
