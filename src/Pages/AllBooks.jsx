@@ -11,9 +11,10 @@ const AllBooks = () => {
       setBooks(BookData);
     }
     load();
-  }, []);
+  }, [books]);
+
   return (
-    <div className="px-16">
+    <div className="px-16 pb-16">
       <div className=" my-12  text-center">
         <h1 className="text-3xl pb-2 font-bold border-b-2 inline-block">
           All Books

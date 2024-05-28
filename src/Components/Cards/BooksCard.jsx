@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
 const BooksCard = ({ book }) => {
-  const { author, imageLink, link, title, country, year, language } = book;
+  const { author, imageLink, link, title, country, year, language, price } = book;
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -13,6 +13,11 @@ const BooksCard = ({ book }) => {
           <div className="badge badge-secondary">{language}</div>
         </h2>
         <p>By: {author}</p>
+        <div>
+          <div>
+             <p className="font-bold text-xl text-[#65cb50]">${price}</p>
+          </div>
+        </div>
 
         <div className="card-actions justify-between mt-4">
           <a
