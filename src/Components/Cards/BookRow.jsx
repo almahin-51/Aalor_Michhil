@@ -8,6 +8,7 @@ const BookRow = ({ book }) => {
       <td>{book?.title}</td>
       <td>${book?.price}</td>
       <td>{book?.language}</td>
+      <td>{book?.year}</td>
       <td className="flex gap-4">
         <Link
           to={`/dashboard/edit-book/${book?.id}`}
@@ -15,7 +16,9 @@ const BookRow = ({ book }) => {
         >
           Edit
         </Link>
-        <button className="btn btn-xs btn-error">Delete</button>
+        <button className="btn btn-xs text-red-500 btn-outline btn-ghost">
+          Delete
+        </button>
       </td>
     </tr>
   );

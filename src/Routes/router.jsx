@@ -11,6 +11,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import DashboardHome from "../Components/Dashboard/DashboardHome";
 import ManageAllBooks from "../Components/Dashboard/ManageAllBooks";
 import AddBook from "../Components/Dashboard/AddBook";
+import EditBook from "../Components/Dashboard/EditBook";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: "add-book",
         element: <AddBook />,
+      },
+      {
+        path: "edit-book/:id",
+        element: <EditBook />,
       },
     ],
   },

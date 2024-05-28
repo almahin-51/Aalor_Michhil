@@ -15,9 +15,7 @@ const AddBook = () => {
 
   const handleCreateRecipe = async (e) => {
     e.preventDefault();
-
     const form = e.target;
-
     const id = form.id.value;
     const title = form.title.value;
     const price = form.price.value;
@@ -39,15 +37,19 @@ const AddBook = () => {
       imageLink,
       author,
     };
-    console.log(bookData);
-    await axios.post("http://localhost:3000/books", bookData);
+
+    const dataPost = await axios.post("http://localhost:3000/books", bookData);
+    if (dataPost.status === 201) {
+      alert("Book Added Successfully");
+      form.reset();
+    }
   };
 
   // author, imageLink, link, title, country, year, language, price, id
 
   return (
     <div className="w-full px-16">
-      <h1 className="text-4xl mb-4">Add Recipe</h1>
+      <h1 className="text-4xl my-6 mt-10 font-bold ">Add Recipe</h1>
       <form onSubmit={handleCreateRecipe} className="w-full">
         <div className="mb-4">
           <label htmlFor="">Id </label>
@@ -110,7 +112,7 @@ const AddBook = () => {
           <input
             type="submit"
             value={"Add Book"}
-            className="w-full btn py-3 px-5 border btn-neutral"
+            className="w-full  py-3 px-5 border btn btn-warning"
           />
         </div>
       </form>

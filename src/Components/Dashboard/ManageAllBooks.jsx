@@ -6,18 +6,17 @@ const ManageAllBooks = () => {
   const [books, setBooks] = useState();
   useEffect(() => {
     async function load() {
-      const data = await axios.get("http://localhost:3000/books  ");
+      const data = await axios.get("http://localhost:3000/books");
       if (data?.status === 200) {
         setBooks(data?.data);
       }
     }
     load();
   }, []);
-  console.log(books);
 
   return (
     <div className="overflow-x-auto w-full px-16 mt-10">
-      <h1 className="text-3xl mb-4">Manage All Books</h1>
+      <h1 className="text-3xl mb-6 font-bold ">Manage All Books</h1>
       <table className="table table-zebra">
         {/* head */}
         <thead>
@@ -26,6 +25,7 @@ const ManageAllBooks = () => {
             <th>Title</th>
             <th>Price</th>
             <th>Language</th>
+            <th>Year</th>
             <th className="text-center">Action</th>
           </tr>
         </thead>

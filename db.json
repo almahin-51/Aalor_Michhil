@@ -9,9 +9,9 @@
       "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart",
       "pages": 209,
       "title": "Things Fall Apart",
-      "year": 1958,
+      "year": "1960",
       "rating": 4.5,
-      "price": 15.99
+      "price": "15.99"
     },
     {
       "id": "2",
@@ -686,6 +686,17 @@
       "link": "https://www.target.com/p/state-of-shock-first-family-by-marie-force-paperback/-/A-88244568",
       "imageLink": "https://target.scene7.com/is/image/Target/GUEST_abd74e6a-e1c4-48a3-8e13-fc9d11ff53df?wid=800&hei=800&qlt=80&fmt=webp",
       "author": "Marie Force (Paperback)"
+    },
+    {
+      "id": "101",
+      "title": "Deborah Meaden Talks Money (Talks)",
+      "price": "16.49",
+      "country": "London",
+      "year": "2024",
+      "language": "English",
+      "link": "https://books.google.com.bd/books/about/Deborah_Meaden_Talks_Money_Talks.html?id=P7jeEAAAQBAJ&source=kp_cover&redir_esc=y",
+      "imageLink": "https://books.google.com.bd/books/publisher/content?id=P7jeEAAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE71vBkiz8gzEKp1Ue6SpMXBKwV2USpMRWhZspkp2Zxx2MW9ksg0QyHwGMhQwHHOrRwQaJbVM5aebkP8fF-CBA-aJKCvFsodgE38GfsJPfI68wDX7YclWXb3AZRPDS7f2N5jVqLTV",
+      "author": "Deborah Meaden"
     }
   ]
 }
