@@ -78,24 +78,20 @@ const Navbar = () => {
       ) : (
         <div className="navbar-end flex gap-4">
           {
-            toggle?<div className="absolute top-16 drop-shadow-2xl bg-white rounded-lg p-5">
+            toggle && <div className="absolute top-16 drop-shadow-2xl bg-white rounded-lg p-5">
               <div>
-            <Link to={"/dashboard"} className="btn">
+            <Link to={"/dashboard"} className="btn btn-outline">
               Dashboard
             </Link>
           </div>
               <div className="mt-3">
-            <button className="btn" onClick={handleLogout}>
+            <button className="btn btn-outline w-full" onClick={handleLogout}>
               Logout
             </button>
           </div>
           
-            </div> : <div></div>
+            </div>
           }
-
-          <div >
-
-          </div>
 
           <div onClick={handleToggle} className="avatar placeholder">
             <div className="bg-neutral text-neutral-content rounded-full w-8">

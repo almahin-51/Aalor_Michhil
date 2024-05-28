@@ -22,11 +22,11 @@ const Features = () => {
                     <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" checked/>
                     <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
                 </div>
-           </div>
-           <div className="flex flex-col justify-center items-center">
-            <p className="text-5xl font-bold">$23.18</p>
-            <button className="btn my-5 rounded-full px-6 shadow-lg bg-[#77b748] text-white text-lg"><SlBasket className="mr-1" /> Add to card</button>
-           </div>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+                <p className="text-5xl font-bold">$23.18</p>
+                <button className="btn my-5 rounded-full px-6 shadow-lg bg-[#77b748] text-white text-lg"><SlBasket className="mr-1 font-bold" /> Add to card</button>
+            </div>
         </div>
     );
 };

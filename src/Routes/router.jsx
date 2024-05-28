@@ -8,6 +8,9 @@ import About from "../Pages/About";
 import AllBooks from "../Pages/AllBooks";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layouts/DashboardLayout";
+import DashboardHome from "../Components/Dashboard/DashboardHome";
+import ManageAllBooks from "../Components/Dashboard/ManageAllBooks";
+import AddBook from "../Components/Dashboard/AddBook";
 
 export const router = createBrowserRouter([
   {
@@ -39,8 +42,25 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute>
-      <DashboardLayout/>
-    </PrivateRoute>
-  }
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+
+    children: [
+      {
+        index: true,
+        element: <DashboardHome />,
+      },
+      {
+        path: "manage-books",
+        element: <ManageAllBooks />,
+      },
+      {
+        path: "add-book",
+        element: <AddBook />,
+      },
+    ],
+  },
 ]);

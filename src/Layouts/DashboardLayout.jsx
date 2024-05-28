@@ -29,19 +29,19 @@ const DashboardLayout = () => {
         ></label>
         <ul className="menu p-4 w-60 min-h-screen bg-base-200 text-base-content flex flex-col justify-between">
           {/* Sidebar content here */}
-          <div>
-            <li>
-              <Link to={"/dashboard/manage-recipes"}>Mangae All Recipes</Link>
+          <div className="flex flex-col gap-3">
+            <li className="border border-[#9a9a9a]">
+              <Link to={"/"}>Home</Link>
             </li>
-            <li>
-              <Link to={"/dashboard/add-recipe"}>Add Recipe</Link>
+            <li className="border border-[#9a9a9a]">
+              <Link to={"/dashboard/manage-books"}>Manage All Books</Link>
+            </li>
+            <li className="border border-[#9a9a9a]">
+              <Link to={"/dashboard/add-book"}>Add Books</Link>
             </li>
           </div>
-          <div className="flex gap-4">
-            <Link to={"/"} className="btn btn-neutral">
-              Home
-            </Link>
-            <button className="btn btn-error" onClick={handleLogout}>
+          <div className="flex gap-4 justify-center">
+            <button className="btn btn-outline" onClick={handleLogout}>
               Logout
             </button>
           </div>
