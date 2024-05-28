@@ -13,7 +13,7 @@ const AddBook = () => {
   //   load();
   // }, []);
 
-  const handleCreateRecipe = async (e) => {
+  const handleAddBook = async (e) => {
     e.preventDefault();
     const form = e.target;
     const id = form.id.value;
@@ -49,8 +49,8 @@ const AddBook = () => {
 
   return (
     <div className="w-full px-16">
-      <h1 className="text-4xl my-6 mt-10 font-bold ">Add Recipe</h1>
-      <form onSubmit={handleCreateRecipe} className="w-full">
+      <h1 className="text-4xl my-6 mt-10 font-bold ">Add Book</h1>
+      <form onSubmit={handleAddBook} className="w-full">
         <div className="mb-4">
           <label htmlFor="">Id </label>
           <input type="number" name="id" className="w-full py-3 px-5 border" />
