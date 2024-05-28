@@ -12,7 +12,7 @@ const ManageAllBooks = () => {
       }
     }
     load();
-  }, []);
+  }, [books]);
 
   return (
     <div className="overflow-x-auto w-full px-16 mt-10">

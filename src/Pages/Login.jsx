@@ -1,6 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../Components/auth/GoogleLogin";
-import { useAuthState,useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import auth from "../Firebase/firebase.config";
 import { useEffect } from "react";
 
@@ -8,24 +11,23 @@ const Login = () => {
   const [userInfo] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const [
-    signInWithEmailAndPassword, user, loading, error
-  ] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
-  const handleSignIn = (e) =>{
+  const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
     signInWithEmailAndPassword(email, password);
+  };
 
-  }
-
-  useEffect(()=>{
-    if(userInfo){
-      navigate("/")
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
     }
-  },[navigate, userInfo]);
+  }, [navigate, userInfo]);
   console.log(user, loading, error);
 
   return (
@@ -65,9 +67,11 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                {
-                  error && <p className="text-red-500 text-center mt-3">{error.message?.slice(10)}</p>
-                }
+                {error && (
+                  <p className="text-red-500 text-center mt-3">
+                    {error.message?.slice(10)}
+                  </p>
+                )}
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
