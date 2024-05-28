@@ -53,7 +53,7 @@ const EditBook = () => {
 
   return (
     <div className="w-full px-16">
-      <h1 className="text-4xl mb-4">Add Recipe</h1>
+      <h1 className="text-4xl mb-4 font-bold">Edit Books</h1>
       <form onSubmit={handleUpdateBook} className="w-full">
         <div className="mb-4">
           <label htmlFor="">Title </label>
@@ -132,7 +132,7 @@ const EditBook = () => {
           <input
             type="submit"
             value={"Add Book"}
-            className="w-full btn py-3 px-5 border btn-neutral"
+            className="w-full btn py-3 px-5 border btn-warning"
           />
         </div>
       </form>
