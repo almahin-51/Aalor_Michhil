@@ -82,14 +82,15 @@ const DashboardHome = () => {
                     name="photoURL"
                   />
                 </div>
-                <button type="submit" className="btn btn-warning">
-                  Update profile
-                </button>
-              </form>
-
-              <form method="dialog ">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn mt-2">Close</button>
+                <div className="modal-action">
+                  <button type="submit" className="btn btn-warning">
+                    Update profile
+                  </button>
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                    <button className="btn">Close</button>
+                  </form>
+                </div>{" "}
               </form>
             </div>
           </dialog>
