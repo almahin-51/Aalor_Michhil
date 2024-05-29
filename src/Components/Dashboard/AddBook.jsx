@@ -49,7 +49,6 @@ const AddBook = () => {
   };
 
   const handleAddBook = async (e) => {
-    e.preventDefault();
     const form = e.target;
     const id = form.id.value;
     const title = form.title.value;

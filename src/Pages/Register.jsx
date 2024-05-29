@@ -1,40 +1,44 @@
 import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../Components/auth/GoogleLogin";
-import { useAuthState, useCreateUserWithEmailAndPassword,  } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import auth from "../Firebase/firebase.config";
 import { useEffect, useState } from "react";
 
 const Register = () => {
-
   const [userInfo] = useAuthState(auth);
   const navigate = useNavigate();
   const [passMatch, setPassMatch] = useState(true);
 
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    // const displayName = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirm_password = form.confirm_password.value;
 
-    if(password !== confirm_password){
+    if (password !== confirm_password) {
       setPassMatch(false);
     }
-    if(password === confirm_password){
+    if (password === confirm_password) {
       setPassMatch(true);
       createUserWithEmailAndPassword(email, password);
-    }    
+    }
   };
 
-  console.log(user)
+  console.log(user);
 
-  useEffect(()=>{
-    if(userInfo){
-      navigate("/")
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
     }
-  },[navigate, userInfo, loading])
+  }, [navigate, userInfo, loading]);
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -48,6 +52,18 @@ const Register = () => {
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Name"
+                name="name"
+                className="input input-bordered"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -83,14 +99,16 @@ const Register = () => {
                 className="input input-bordered"
                 required
               />
-              {
-                !passMatch && (
-                  <div className="py-2"><p className="text-red-500">Password do not Match!</p></div>
-                )
-              }
-              {
-                  error && <p className="text-red-500 text-center mt-3">{error.message?.slice(10)}</p>
-                }
+              {!passMatch && (
+                <div className="py-2">
+                  <p className="text-red-500">Password do not Match!</p>
+                </div>
+              )}
+              {error && (
+                <p className="text-red-500 text-center mt-3">
+                  {error.message?.slice(10)}
+                </p>
+              )}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?

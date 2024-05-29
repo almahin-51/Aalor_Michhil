@@ -1,12 +1,26 @@
 import { useSignOut } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
 import auth from "../Firebase/firebase.config";
+import swal from "sweetalert";
 
 const DashboardLayout = () => {
   const [signOut] = useSignOut(auth);
 
-  const handleLogout = async () => {
-    await signOut();
+  const handleLogout = () => {
+    swal({
+      title: "Are you sure?",
+      text: "You want to logout?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("Successfully logout!", {
+          icon: "success",
+        });
+        signOut();
+      }
+    });
   };
 
   return (
@@ -32,6 +46,9 @@ const DashboardLayout = () => {
           <div className="flex flex-col gap-3">
             <li className="border border-[#9a9a9a]">
               <Link to={"/"}>Home</Link>
+            </li>
+            <li className="border border-[#9a9a9a]">
+              <Link to={"/dashboard"}>Profile</Link>
             </li>
             <li className="border border-[#9a9a9a]">
               <Link to={"/dashboard/manage-books"}>Manage All Books</Link>
