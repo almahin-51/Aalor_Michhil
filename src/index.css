@@ -32,3 +32,12 @@
   overflow: hidden;
   background-size: contain;
 }
+
+.bookCategory {
+  background-image: url(./assets/pic/bgparallax-04.jpg);
+  object-fit: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
+  background-size: cover;
+}
